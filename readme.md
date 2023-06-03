@@ -14,7 +14,7 @@ Modern Dictionary is a web application that allows users to search for word defi
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/modern-dictionary.git
+   git clone https://github.com/habitual69/moderndictionary.git
    ```
 
 2. Install the required dependencies:
