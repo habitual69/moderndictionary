@@ -13,6 +13,15 @@ chrome_options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0;Win64) Appl
 
 driver = webdriver.Chrome(options=chrome_options)
 
+
+#Custom CSS styling to make the app look better
+
+with open("./css/style.css") as f:
+    style=f.read()
+
+st.markdown(f"""{style}""", unsafe_allow_html=True)
+
+
 def get_word_definition(search_word):
     url = f"https://www.dictionary.com/browse/{search_word}"
     driver.get(url)
@@ -46,7 +55,7 @@ def get_word_definition(search_word):
 # Streamlit app
 col1, col2, col3 = st.columns([1, 3, 1])
 with col2:
-    st.title(":blue[Word] :red[Dictionary] :books:")
+    st.title(":blue[Modern] :red[Dictionary] :books:",anchor=None)
 
 # Input box for search word
 search_word = st.text_input("Enter a word")
@@ -59,26 +68,60 @@ if st.button("Search"):
                 level, phonetic_form, definitions, audio_url, wordtype = get_word_definition(search_word)
 
                 # Displaying the results
-                st.markdown(f"> ##  {search_word}")
-                st.markdown(f"#### *:blue[{wordtype}]*")
-                st.markdown(f"**Level:** :red[{level}]".replace(
-                    "This shows grade level based on the word's complexity.",
-                    " 📈  :blue[``` This shows grade level based on the word's complexity.``` ] "
-                ))
-                st.markdown(f"##### Phonetic Form: :speaking_head_in_silhouette: {phonetic_form}".replace("SHOW IPA", ""))
-
-                col1, col2 = st.columns(2)
+                st.markdown(f"""
+                            <div class="bg-indigo-800 text-left py-4 sm:px-4 rounded-lg font-extrabold text-3xl" style="font-family: 'Righteous', cursive;">
+                            {search_word}
+                            </div> 
+                            """, unsafe_allow_html=True)
+                st.markdown(f"""
+                            <br>
+                            <div class="p-2 text-center bg-indigo-600 items-center text-indigo-100 leading-none lg:rounded-full sm:rounder-full md:rounded-full flex lg:inline-flex" role="alert">
+                            <span class="font-semibold mr-2 text-left flex-auto">{wordtype}</span>
+                        </div>
+                        <br>
+                        <br>
+                            """,unsafe_allow_html=True)
+                col1,col2=st.columns(2)
+                st.markdown("---")
                 with col1:
+                    st.markdown("---")
+                    st.markdown(f"**Level:** :star: :red[{level}]".replace(
+                    "This shows grade level based on the word's complexity.",
+                    " 📈 "
+                ))     
+                with col1:
+                    st.markdown(f"##### Phonetic Form: :speaking_head_in_silhouette: {phonetic_form}".replace("SHOW IPA", ""))
+                with col2:
+                    st.markdown("---")
                     if audio_url:
                         st.audio(audio_url, format='audio/mp3')
-
-                st.markdown("### Definitions: :books:")
                 formatted_definitions = "".join([f"🔘{definition}<br>" for definition in definitions])
-                st.markdown(formatted_definitions, unsafe_allow_html=True)
+                st.markdown("## Definitions: :books:")
+                st.markdown(f"""
+                            <div class="container mx-auto border rounded-lg px-2 py-2">
+                            {formatted_definitions}
+                            </div>
+                            """,unsafe_allow_html=True)
+                
 
             except:
-                st.warning("No result found!. Are you sure you have typed it correctly?")
+                warn="""
+                <div class="bg-indigo-900 text-center py-4 lg:px-4 rounded-lg">
+                <div class="p-2 bg-indigo-800 items-center text-indigo-100 leading-none lg:rounded-full flex lg:inline-flex" role="alert">
+                    <span class="flex rounded-full bg-indigo-500 uppercase px-2 py-1 text-xs font-bold mr-3">Oops..</span>
+                    <span class="font-semibold mr-2 text-left flex-auto">No result found!. Are you sure you have typed it correctly?</span>
+                </div>
+                </div>
+                """
+                # st.warning("No result found!. Are you sure you have typed it correctly?")
+                st.markdown(f"""{warn}""", unsafe_allow_html=True)
     else:
         st.warning("Please enter a word to search!")
-
-driver.quit()
+st.markdown(
+        """
+        <div class="bg-gray-100 py-4 text-gray-700 text-center mx-2 rounded-xl shadow m-4 custom-footer">
+            <p class="text-sm text-gray-600">© 2023 Mordern Dictionary 💓. All rights reserved.</p>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )

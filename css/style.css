@@ -1,0 +1,108 @@
+<head>
+                <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet">
+                <link rel="preconnect" href="https://fonts.googleapis.com">
+                <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+                <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
+                <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+                <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
+                <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200&display=swap" rel="stylesheet">
+                <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Righteous&display=swap" rel="stylesheet">
+                <style>
+                div[data-testid="stImage"] {
+                border:3px;
+                padding:3px;
+                border-radius: 20px;
+                background-color: #22223b;
+
+                }
+                div[data-testid="stExpander"]{
+                background-color: #22223b;
+                border-radius: 50px;
+                text-align: justify;
+                }
+
+                
+                footer {
+                visibility: hidden;
+                }
+                #MainMenu {
+                visibility: hidden;
+                }
+                header {
+                visibility: hidden;
+                }
+
+                div [data-testid="stAppViewContainer"]{
+                background-color: #22223b;
+                }
+                div[role="selectbox"] ul {
+                background-color: #22223b;
+                }
+                
+                element-container:has(>.stTextInput ), .stTextInput  {
+                    border-radius: 30px;
+                    align-content: center;
+                }
+                
+
+                img{
+                border-radius: 10px;
+                width: 150px; 
+                height: 150px; 
+                object-fit: cover;
+                object-position: 25% 25%;
+                }
+
+ 
+                h1{
+                font-family: 'Righteous', cursive;
+                font-size:  2.50rem;
+                text-align: center;
+                }
+
+                h4{
+                font-family: 'Raleway', sans-serif;
+                font-size:  1rem;
+                align: center;
+                }
+                h3{
+                font-family: 'Righteous', cursive;
+                }
+                
+                h2{
+                font-family: 'Righteous', cursive;
+                font-size: x-large;
+                color: rgb(213, 247, 252);
+                }
+                p{
+                font-family: 'Josefin Sans', sans-serif;
+                }
+                caption {
+                font-family: 'Dosis', sans-serif;
+                color: white;
+                }
+                
+                @media (max-width: 640px) {
+                .custom-footer {
+                width: 100% !important;
+                }
+                }
+                @media (min-width: 640px) {
+                .custom-footer {
+                    width: 50% !important;
+                    margin-left: auto !important;
+                    margin-right: auto !important;
+                }
+                }
+
+                div.stButton > button:first-child {
+                    color: #fffff;
+                    border-radius: 15px;
+                    background-color: #2c3930;
+                    width: 100px;
+                    align-content: center;
+                    transition: background-color 0.3s;
+                    &:hover {
+                        background-color: #1a2e05;
+                    }
+</head>
