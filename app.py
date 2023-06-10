@@ -102,8 +102,6 @@ if st.button("Search"):
                             {formatted_definitions}
                             </div>
                             """,unsafe_allow_html=True)
-                
-
             except:
                 warn="""
                 <div class="bg-brown-100 text-center py-4 lg:px-4 rounded-lg">
