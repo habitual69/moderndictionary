@@ -69,7 +69,7 @@ if st.button("Search"):
 
                 # Displaying the results
                 st.markdown(f"""
-                            <div class="bg-indigo-800 text-left py-4 sm:px-4 rounded-lg font-extrabold text-3xl" style="font-family: 'Righteous', cursive;">
+                            <div class="text-left py-4 sm:px-4 rounded-lg font-extrabold text-3xl" style="font-family: 'Righteous', cursive; background-color:#F9BF8F;">
                             {search_word}
                             </div> 
                             """, unsafe_allow_html=True)
@@ -96,9 +96,9 @@ if st.button("Search"):
                     if audio_url:
                         st.audio(audio_url, format='audio/mp3')
                 formatted_definitions = "".join([f"🔘{definition}<br>" for definition in definitions])
-                st.markdown("## Definitions: :books:")
+                st.markdown("""<h1 class="text-xl text-gray-600">Example:</h1>""",unsafe_allow_html=True)
                 st.markdown(f"""
-                            <div class="container mx-auto border rounded-lg px-2 py-2">
+                            <div class="container mx-auto border rounded-lg px-2 py-2" style="border-color: #E2434B;">
                             {formatted_definitions}
                             </div>
                             """,unsafe_allow_html=True)
@@ -106,9 +106,9 @@ if st.button("Search"):
 
             except:
                 warn="""
-                <div class="bg-indigo-900 text-center py-4 lg:px-4 rounded-lg">
-                <div class="p-2 bg-indigo-800 items-center text-indigo-100 leading-none lg:rounded-full flex lg:inline-flex" role="alert">
-                    <span class="flex rounded-full bg-indigo-500 uppercase px-2 py-1 text-xs font-bold mr-3">Oops..</span>
+                <div class="bg-brown-100 text-center py-4 lg:px-4 rounded-lg">
+                <div class="p-2 bg-brown-100 items-center text-indigo-100 leading-none lg:rounded-full flex lg:inline-flex" role="alert">
+                    <span class="flex rounded-full bg-brown-100 uppercase px-2 py-1 text-xs font-bold mr-3">Oops..</span>
                     <span class="font-semibold mr-2 text-left flex-auto">No result found!. Are you sure you have typed it correctly?</span>
                 </div>
                 </div>
@@ -120,7 +120,7 @@ if st.button("Search"):
 st.markdown(
         """
         <div class="bg-gray-100 py-4 text-gray-700 text-center mx-2 rounded-xl shadow m-4 custom-footer">
-            <p class="text-sm text-gray-600">© 2023 Mordern Dictionary 💓. All rights reserved.</p>
+            <p class="text-sm text-gray-600">© 2023 Modern Dictionary 💓. All rights reserved.</p>
         </div>
         """,
         unsafe_allow_html=True
